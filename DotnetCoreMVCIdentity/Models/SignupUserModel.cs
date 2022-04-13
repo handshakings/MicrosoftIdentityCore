@@ -5,6 +5,10 @@ namespace DotnetCoreMVCIdentity.Models
 #nullable disable
     public class SignupUserModel
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+
         [Required(ErrorMessage = "Please Enter your email")]
         [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress)]

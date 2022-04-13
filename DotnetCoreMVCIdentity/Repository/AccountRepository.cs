@@ -5,10 +5,10 @@ namespace DotnetCoreMVCIdentity.Repository
 {
     public class AccountRepository : IAccountRepository
     {
-        private readonly UserManager<IdentityUser> userManager;
+        private readonly UserManager<ApplicationUser> userManager;
 
         //Inject UserManager
-        public AccountRepository(UserManager<IdentityUser> userManager)
+        public AccountRepository(UserManager<ApplicationUser> userManager)
         {
             this.userManager = userManager;
         }
@@ -16,8 +16,10 @@ namespace DotnetCoreMVCIdentity.Repository
         public async Task<IdentityResult> CreateUserAsync(SignupUserModel userModel)
         {
             //to save user detail, identity provides 2 managers: UserManager and SignInManager
-            var user = new IdentityUser
+            var user = new ApplicationUser
             {
+                FirstName = userModel.FirstName,
+                LastName = userModel.LastName,
                 Email = userModel.Email,
                 UserName = userModel.Email
             };

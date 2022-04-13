@@ -1,4 +1,5 @@
 using DotnetCoreMVCIdentity.Data;
+using DotnetCoreMVCIdentity.Models;
 using DotnetCoreMVCIdentity.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyConString")));
 //To use database and adding identity together
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<MyDbContext>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<MyDbContext>();
 //injecting account repository
 builder.Services.AddScoped<IAccountRepository,AccountRepository>();
 #endregion

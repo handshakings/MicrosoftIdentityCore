@@ -52,3 +52,13 @@ Open package manager console and run below commands
 * add-migration MyMigration
 * update-database
 
+## Microsoft IdentityCore
+By default, there is build in Identity class, you can use. However it may not contains properties you need to validate for signup/login. For example firstName, LastName not exist in Identity class.
+For this 
+* Create your own class as ApplicationUser.cs and inherit it from IdentityCore class.
+* In program.cs, change IdentityUser to ApplicationUser
+* Pass ApplicationUser to IdentityDbContext class in MyDbContext.cs class. 
+* change all IdentityUser to ApplicationUser in AccountRepository.cs
+* create input fields for firstName and lastName in signup.cshtml
+* add new migration with another name as addedApplicationUser and update database
+
