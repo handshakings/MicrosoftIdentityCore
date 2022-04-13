@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7655942c-5df9-4ddc-b2f5-01125e62a43b": {
+      "ProjectGuid": "7655942c-5df9-4ddc-b2f5-01125e62a43b",
+      "DisplayName": "DotnetCoreIdentity",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "9fe958a1-151f-4a1b-a84c-2d45db314397": {
+      "ProjectGuid": "9fe958a1-151f-4a1b-a84c-2d45db314397",
+      "DisplayName": "DotnetCoreMVCIdentity",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
