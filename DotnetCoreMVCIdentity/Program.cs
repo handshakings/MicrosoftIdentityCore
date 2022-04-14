@@ -4,6 +4,7 @@ using DotnetCoreMVCIdentity.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,6 +17,14 @@ builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyConString")));
 //To use database and adding identity together
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<MyDbContext>();
+//Configure identity fields for custom validation
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequireDigit = false;
+});
 //injecting account repository
 builder.Services.AddScoped<IAccountRepository,AccountRepository>();
 #endregion

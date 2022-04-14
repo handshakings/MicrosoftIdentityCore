@@ -62,3 +62,5 @@ For this
 * create input fields for firstName and lastName in signup.cshtml
 * add new migration with another name as addedApplicationUser and update database
 
+## Customize validation of identity input fields
+By default, identity password take one uppercase, one lowercase, one numeric and one special character and minimun 6 characters. How can you change this validation. For this configure identityOptions in program.cs file as below:-
