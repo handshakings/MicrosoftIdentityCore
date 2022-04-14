@@ -64,3 +64,13 @@ For this
 
 ## Customize validation of identity input fields
 By default, identity password take one uppercase, one lowercase, one numeric and one special character and minimun 6 characters. How can you change this validation. For this configure identityOptions in program.cs file as below:-
+
+```c#
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequireDigit = false;
+});
+```
