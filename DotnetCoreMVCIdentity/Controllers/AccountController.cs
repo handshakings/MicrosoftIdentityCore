@@ -46,5 +46,40 @@ namespace DotnetCoreMVCIdentity.Controllers
             }
             return View();
         }
+
+
+        [Route("login")]
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+
+        [Route("login")]
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginUserModel loginModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await accountRepository.PasswordSigninAsync(loginModel);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index","Home");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid credentiel");
+                }
+            }
+            return View(loginModel);
+        }
+
+        [Route("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await accountRepository.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
