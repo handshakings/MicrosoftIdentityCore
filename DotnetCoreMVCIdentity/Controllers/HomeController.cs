@@ -1,32 +1,27 @@
-﻿using DotnetCoreMVCIdentity.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace DotnetCoreMVCIdentity.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public IHttpContextAccessor httpContext { get; }
+        public HomeController(IHttpContextAccessor httpContext)
         {
-            _logger = logger;
+            this.httpContext = httpContext;
         }
 
         public IActionResult Index()
         {
+            var isUserAuthenticted = httpContext.HttpContext.User.Identity.IsAuthenticated;
+            if(isUserAuthenticted)
+            {
+                var userId = httpContext.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+                ViewBag.uid = userId ?? "";
+            }
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

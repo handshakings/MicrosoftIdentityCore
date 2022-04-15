@@ -83,3 +83,8 @@ To restrict any action method or entire controller, authrize attribute is used. 
 * Create class named ApplicationUserClaimsPrincipalFactory and add user claims in it.
 * Register user claims class in program.cs under services
 * You can use user claims anywher as I used in _layout.cshtml to get UserFirstName and UserLastName
+
+## Get User ID in controller
+* Inject HttpContextAccessor in Home controller constructor
+* Using it you can extract UserID from user claims
+* Also you can get IsUserAuthenticated from httpcontextaccessor
