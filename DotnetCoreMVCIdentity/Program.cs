@@ -1,3 +1,4 @@
+using DotnetCoreMVCIdentity;
 using DotnetCoreMVCIdentity.Data;
 using DotnetCoreMVCIdentity.Models;
 using DotnetCoreMVCIdentity.Repository;
@@ -25,7 +26,9 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 3;
     options.Password.RequireDigit = false;
 });
-//injecting account repository
+//register services
+//below first line is registering user claims, you can use anywhere
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPrincipalFactory>();
 builder.Services.AddScoped<IAccountRepository,AccountRepository>();
 #endregion
 

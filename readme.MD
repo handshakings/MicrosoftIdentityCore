@@ -64,7 +64,6 @@ For this
 
 ## Customize validation of identity input fields
 By default, identity password take one uppercase, one lowercase, one numeric and one special character and minimun 6 characters. How can you change this validation. For this configure identityOptions in program.cs file as below:-
-
 ```c#
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -74,3 +73,13 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireDigit = false;
 });
 ```
+
+## Authorize attribute
+To restrict any action method or entire controller, authrize attribute is used. Only logged in use can access the authorized action method. To implement is-
+* use [Authorize] before action method/controller
+* app.UseAuthorization(); 
+
+## Application Claims (Info about logged in user stored in claims)
+* Create class named ApplicationUserClaimsPrincipalFactory and add user claims in it.
+* Register user claims class in program.cs under services
+* You can use user claims anywher as I used in _layout.cshtml to get UserFirstName and UserLastName
