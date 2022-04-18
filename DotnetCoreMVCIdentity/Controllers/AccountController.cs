@@ -55,7 +55,6 @@ namespace DotnetCoreMVCIdentity.Controllers
             return View();
         }
 
-
         [Route("login")]
         [HttpPost]
         public async Task<IActionResult> Login(LoginUserModel loginModel)
@@ -81,5 +80,37 @@ namespace DotnetCoreMVCIdentity.Controllers
             await accountRepository.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+
+
+
+        [Route("changepassword")]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+        [Route("changepassword")]
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordModel changePasswordModel)
+        {
+            if(ModelState.IsValid)
+            {
+                var ressult = await accountRepository.ChangePasswordAsync(changePasswordModel);
+                if(ressult.Succeeded)
+                {
+                    ViewBag.IsSuccess = true;
+                    ModelState.Clear();
+                    return View();
+                }
+                foreach(var error in ressult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+            return View();
+        }
+
+
+
     }
 }

@@ -266,3 +266,8 @@ E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\obj\Debug\net6.0\DotnetCoreMVCIdenti
 E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\obj\Debug\net6.0\ref\DotnetCoreMVCIdentity.dll
 E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\obj\Debug\net6.0\DotnetCoreMVCIdentity.pdb
 E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\obj\Debug\net6.0\DotnetCoreMVCIdentity.genruntimeconfig.cache
+E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\DotnetCoreIdentity\DotnetCoreMVCIdentity\obj\Debug\net6.0\DotnetCoreMVCIdentity.MvcApplicationPartsAssemblyInfo.cs

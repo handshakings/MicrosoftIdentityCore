@@ -88,3 +88,6 @@ To restrict any action method or entire controller, authrize attribute is used. 
 * Inject HttpContextAccessor in Home controller constructor
 * Using it you can extract UserID from user claims
 * Also you can get IsUserAuthenticated from httpcontextaccessor
+
+## Change Password
+* create class in model as ChangePasswordModel.cs

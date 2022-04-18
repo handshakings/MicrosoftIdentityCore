@@ -9,5 +9,7 @@ namespace DotnetCoreMVCIdentity.Repository
         Task<SignInResult> PasswordSigninAsync(LoginUserModel userModel);
         Task SignOutAsync();
 
+        Task<IdentityResult> ChangePasswordAsync(ChangePasswordModel model);
+
     }
 }
